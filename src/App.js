@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import MainPage from "./components/MainPage/MainPage";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import VotePage from "./components/VotePage/VotePage";
+import VoteCompletedPage from './components/VotePage/VoteCompleted/VoteCompletedPage'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route path={'/'} component={MainPage} exact/>
+          <Route path={'/vote'} component={VotePage} exact/>
+          <Route path={'/vote/completed'} component={VoteCompletedPage} exact/>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
