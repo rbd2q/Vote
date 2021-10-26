@@ -1,0 +1,14 @@
+[
+  {
+    "passportNumber": "MP123456",
+    "candidateId": 1
+  },
+  {
+    "passportNumber": "MP876543",
+    "candidateId": 1
+  },
+  {
+    "passportNumber": "MP876512",
+    "candidateId": 3
+  }
+]

@@ -33,10 +33,22 @@ const MainPage = () => {
         onClick={candidatesList.length > 0 ? hideCandidates : fetchCandidates}>
         {candidatesList.length > 0 ? 'Hide candidates' :'Show candidates' }
       </Button>
-      <Button className={styles.btn} variant="contained" color="success" onClick={handleVotePage}>Vote</Button>
+      <Button
+        className={styles.btn}
+        variant="contained"
+        color="success"
+        onClick={handleVotePage}
+      >
+        Vote
+      </Button>
       <div className={styles.mainWrapper}>
         {candidatesList.length === 0 ? <WelcomePage/> : candidatesList.map((c) =>
-          <CandidateBlock key={c.id} firstName={c.firstName} lastName={c.lastName} votesAmount={c.votesAmount}/>
+          <CandidateBlock
+            key={c.id}
+            firstName={c.firstName}
+            lastName={c.lastName}
+            votesAmount={c.votesAmount}
+          />
           )}
       </div>
     </div>

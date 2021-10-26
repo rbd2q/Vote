@@ -1,6 +1,7 @@
 {
   "name": "candidates",
   "version": "0.1.0",
+  "proxy": "http://localhost:8000",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
@@ -8,6 +9,8 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.24.0",
+    "express": "^4.17.1",
     "node-sass": "4.14.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -40,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@mui/material": "^5.0.4"
+    "@mui/material": "^5.0.4",
+    "nodemon": "^2.0.14"
   }
 }

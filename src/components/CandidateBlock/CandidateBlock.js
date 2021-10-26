@@ -14,7 +14,7 @@ const CandidateBlock = ({firstName, lastName, votesAmount}) => {
 
   useEffect(() => {
     fetchVotesAmount();
-  },[votes])
+  },[])
 
 
   return (

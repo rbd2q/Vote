@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "firstName": "Vasya",
+    "lastName": "Pupkin",
+    "votesAmount": 2
+  },
+  {
+    "id": 2,
+    "firstName": "Petya",
+    "lastName": "Sidoroff",
+    "votesAmount": 0
+  },
+  {
+    "id": 3,
+    "firstName": "Ivan",
+    "lastName": "Ivanoff",
+    "votesAmount": 1
+  }
+]
+
+

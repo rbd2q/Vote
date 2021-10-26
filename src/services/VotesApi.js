@@ -1,17 +1,19 @@
-const votesList = [
-  {passportNumber: 'MP123456', candidateId: 1},
-  {passportNumber: 'MP876543', candidateId: 1},
-  {passportNumber: 'MP876512', candidateId: 3},
-]
-
 export default class VotesApi {
-  getVotes() {
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(votesList), 500);
-    });
+  async getVotes() {
+    const response = await fetch(`/getVotes`);
+    const data = await response.json();
+    return data
   }
 
-  addVote(finalVote) {
-    votesList.push(finalVote)
+  async addVote(finalVote) {
+    const response = await fetch(`/addVotes`, {
+      method: 'POST',
+      body: JSON.stringify(finalVote),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return data
   }
 }

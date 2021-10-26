@@ -32,10 +32,7 @@ export default function VoteField() {
     }
 
     const api = new VotesApi();
-    const apiCandidates = new CandidatesApi();
-
-    apiCandidates.addVotesForCandidate(candidateId)
-    api.addVote({passportNumber, candidateId})
+    await api.addVote({passportNumber, candidateId});
 
     history.push('/vote/completed')
   }
