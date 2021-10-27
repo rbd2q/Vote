@@ -3,9 +3,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {Button, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import styles from './VotePage.module.scss'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import VotesApi from "../../services/VotesApi";
-import CandidatesApi from "../../services/CandidatesApi";
 import {useHistory} from "react-router-dom";
 import validateForm from "./VoteValidation/VoteValidation";
 
@@ -14,6 +13,7 @@ export default function VoteField() {
   const [passportNumber, setPassportNumber] = useState('');
   const [candidateId, setCandidateId] = useState('');
   const [errors, setErrors] = useState({});
+  const [requestCountry, setRequestCountry] = useState({});
 
   const handlePassportNumberChange = (event) => {
     setPassportNumber(event.target.value);
@@ -22,6 +22,14 @@ export default function VoteField() {
   const handleCandidateChange = (event) => {
     setCandidateId(event.target.value);
   };
+
+  const checkCountry = async () => {
+    const response = await fetch('https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708');
+    const data = await response.json();
+
+    const country_code = data.country_code;
+    setRequestCountry(country_code);
+  }
 
   const handleSubmitForm = async () => {
     const newErrors = validateForm({ passportNumber });
@@ -32,10 +40,14 @@ export default function VoteField() {
     }
 
     const api = new VotesApi();
-    await api.addVote({passportNumber, candidateId});
+    await api.addVote({passportNumber, candidateId}, requestCountry);
 
-    history.push('/vote/completed')
-  }
+    requestCountry === "BY" ? history.push('/vote/completed') : history.push('/vote/failed');
+  };
+
+  useEffect(() => {
+    checkCountry();
+  }, [])
 
   return (
     <Box

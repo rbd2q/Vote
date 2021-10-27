@@ -1,1 +1,13 @@
-request.body[object Object][object Object]
+request.body[object Object][object Object]{"passportNumber":"MP123456","candidateId":2}{"passportNumber":"MP123456","candidateId":2}{
+  "passportNumber": "MP222222",
+  "candidateId": 2
+}{
+  "passportNumber": "MP222222",
+  "candidateId": 2
+}{
+  "passportNumber": "MP222222",
+  "candidateId": 2
+}{
+  "passportNumber": "MP333333",
+  "candidateId": 2
+}
